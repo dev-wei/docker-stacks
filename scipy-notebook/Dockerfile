@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG BASE_CONTAINER=jupyter/minimal-notebook
+ARG BASE_CONTAINER="michaelwei/jupyter-folk:cuda10.2-base-notebook"
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
@@ -10,6 +10,10 @@ USER root
 # ffmpeg for matplotlib anim & dvipng for latex labels
 RUN apt-get update && \
     apt-get install -y --no-install-recommends ffmpeg dvipng && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends git && \
     rm -rf /var/lib/apt/lists/*
 
 USER $NB_UID
