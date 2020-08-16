@@ -1,6 +1,6 @@
 # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
-ARG BASE_CONTAINER="michaelwei/jupyter-folk:cuda10.2-base-notebook"
+ARG BASE_CONTAINER="michaelwei/jupyter-fork:cuda10.2-base-notebook"
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
