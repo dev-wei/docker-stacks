@@ -4,8 +4,7 @@
 # Ubuntu 20.04 (focal)
 # https://hub.docker.com/_/ubuntu/?tab=tags&name=focal
 # OS/ARCH: linux/amd64
-ARG ROOT_CONTAINER=ubuntu:focal-20200703@sha256:d5a6519d9f048100123c568eb83f7ef5bfcad69b01424f420f17c932b00dea76
-
+ARG ROOT_CONTAINER="nvidia/cuda:10.2-base-ubuntu18.04"
 ARG BASE_CONTAINER=$ROOT_CONTAINER
 FROM $BASE_CONTAINER
 
@@ -44,7 +43,9 @@ ENV CONDA_DIR=/opt/conda \
     NB_GID=$NB_GID \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
-    LANGUAGE=en_US.UTF-8
+    LANGUAGE=en_US.UTF-8 \
+    UBUNTU_VERSION="18.04" \
+    CUDA="10.2"
 ENV PATH=$CONDA_DIR/bin:$PATH \
     HOME=/home/$NB_USER
 
